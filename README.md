@@ -17,18 +17,27 @@ Below are instructions to build and deploy the smart contract & Android APP
 		* Run testrpc - Open your terminal/node js command prompt and run -> testrpc
 			ex : testrpc -h <hostname>
 ### 2. Build & deploy the contract using below commands.
-		* Copy the "Product Location" directory to your local machine .
+		* Copy the "ProductLocation-webApp" directory to your local machine .
 		* Truffe commands to compile and deploy a contract
 		   truffle compile
 		   truffle migrate
 		* After sucessfull deployement ,make a note of deployed contract address ,this needs to be given in android code.
 		   
-### 3. Make sure to modify the below variables in android code 
+### 3. Steps to modify and run the android code 
 		* Set the variable "privateNWUrl" to url of private network (eg : http://192.168.1.109:8545) 
 		* Set the variable "productLocationContractAddress" to deployed contract address. 
 		* Set the variable "privateKey" to your default ethereum account private key.
 		* Run android app.
+		* Add a product details to block chain network by giving RFID,product Name,Latitude & longitude(eg:47.6205099,-122.3514661)
+		* Inorder to retrive the locations ,give RFID and click "Get Locations" button .
+		* For viewing the location on Google Maps ,click on the particular location .
 		
+Steps to run the application on webserver instead of Android app.
+
+		* Run web3j dev server node from the directory where truffle is initiated .(By default node js server runs on localhost with 8080 port).
+			ex : npm run dev.
+			
+		* Go to the browser and type http://localhost:8080 to add and retrive the product location from web.
 		
 
 		
