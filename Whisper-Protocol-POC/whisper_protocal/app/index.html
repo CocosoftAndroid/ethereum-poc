@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Smart Switch</title>
+  <meta name = "viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <!--  <script src="./app.js"></script>
+  <script src="./jquery.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+  <script src="./machineMaintainance.js"></script> -->
+ <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> -->
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="./app.js"></script>
+  </head>
+
+  <body>
+   <div class="container-fluid">
+   <h1>Smart Switch Dapp</h1>
+   <h3 style="margin-top:0px; margin-bottom:30px ;"></h3>
+
+
+   <div class="row">
+   	<div class="col-md-12">
+   		<table class="table table-fluid">
+ 		   <tr>
+ 			   <th>Switch Contract Address</th>
+ 			   <td><span class="black">
+ 			   <span id="cf_address"></span></span></td>
+ 		   </tr>
+ 		   <tr>
+ 			    <th>Rate</th>
+ 			    <td><span class="black">
+ 			    <span id="cf_rate"></span></span></td>
+ 		   </tr>
+ 		   <tr>
+ 			    <th>Service Requests</th>
+ 			    <td><span class="black">
+ 			    <span id="cf_numUsers"></span></span></td>
+ 		    </tr>
+ 	    </table>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col-md-12">
+       <h2 style="padding-top: 20px;"> Subscribe to use switch</h2><br>
+       <span class="black">Coinbase Address:
+       <span id="cb_address" class="c_address"></span></span><br>
+       <span class="black">Coinbase Balance:
+       <span id="cb_balance" class="c_balance"></span>ETH</span><br>
+
+       <select class="form-control" id="numDays" onclick="showTotal();">
+       <option value="0">Select number of days</option>
+       <option value="1">1</option>
+       <option value="7">7</option>
+       <option value="30">30</option>
+     </select>
+     <br>
+     <span class="black">Total:
+     <span id="subscriptionTotal"> 0 </span> ETH </span><br><br>
+
+     <button class="btn btn-primary btn-lg"
+          onclick="buySubscription();"> BUY SUBSCRIPTION</button>
+          <br><br>
+          <div id="status"> &nbsp;</div>
+        </div>
+
+
+        <div class="col-md-12">
+          <h2 style="padding-top: 20px;">  Use switch</h2><br>
+          <span class="black">User Address:
+          <span id="cf_userAddress"></span></span><br>
+          <span class="black">Amount Paid:
+          <span id="cf_userAmountPaid"></span></span><br>
+          <span class="black">Authorized Till:
+          <span id="cf_usersAuthorizedTill"></span></span><br>
+          <span class="black">Authorization Status:
+          <span id="cf_authStatus"></span></span><br>
+          <br>
+          <h3>  Switch ON/OFF</h3>
+          <input id="toggle-event" type="checkbox" data-toggle="toggle" style="width:20px;height:20px;>
+          <div id="switchStatus"> &nbsp;</div>
+        </div>
+      </div>
+    </body>
+    </html>
