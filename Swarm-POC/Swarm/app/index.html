@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Stock Photos Dapp</title>
+  <meta name = "viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <!-- <link rel="stylesheet" href="./bootstrap.min.css"> -->
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <!--  <script src="./app.js"></script>
+  <script src="./jquery.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+  <script src="./machineMaintainance.js"></script> -->
+ <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> -->
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="./app.js"></script>
+  </head>
+  <body>
+    <iframe id = "my_iframe" style="display:none;"></iframe>
+    <a id ="downloadContainer" download></a>
+    <div class="container-fluid">
+    <h1>Stock Photos Dapp</h1>
+    <h3 style="margin-top:0px; margin-bottom:30px ;"></h3>
+    <div id="tabs">
+      <ul>
+        <li><a href="#tabs-1">Upload</a></li>
+        <li><a href="#tabs-2">View</a></li>
+      </ul>
+      <div id="tabs-1">
+        <div class="row">
+        	<div class="col-md-8">
+            <h2 style="padding-top:20px; "> Upload a Photo </h2> <br>
+
+            <span class="black">Coinbase Address:
+              <span id="cb_address" class="c_address"></span></span><br>
+              <span class="black">Coinbase Balance:
+                <span id="cb_balance" >ETH</span></span><br> <br>
+
+                  <input type="text" class="form-control"
+                  id="title" placeholder="Title" /> <br>
+
+                  <input type="text" class="form-control"
+                  id="tags" placeholder="Tags" /> <br>
+
+                  <input type="text" class="form-control"
+                  id="price" placeholder="Price (in Wei)" /> <br>
+
+                  <span class="black"> Photo Thumbnail:
+              <input type="file" class="form-control"
+                name="thumbnailUpload" id="thumbnailUpload" /> <br>
+              </span>
+                <span class="black">Photo:
+              <input class="form-control" type="file"
+                name = "fileUpload" id="fileUpload" /> <br>
+              </span>
+                <br><br>
+
+                <button class="btn btn-primary btn-lg"
+                onclick="uploadPhoto();">UPLOAD</button>
+                <br><br>
+                <div id="status">&nbsp;</div>
+                <div id="uploadedPhoto">&nbsp;</div>
+
+              </div>
+              <div class="col-md-4">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h2 style="padding-top:20px; "> View Photos </h2>
+          <button class="btn btn-primary btn-lg"
+          onclick="getPhotos();">VIEW</button>
+          <br><br>
+          <div id="photosContainer"></div>
+
+
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2 style="padding-top:20px; ">Stock Photos Contract </h2>
+      <h3 style="margin-top:0px; margin-bottom:30px ;"></h3>
+      <table class="table table-fluid">
+       <tr>
+         <th>Contract Address</th>
+         <td><span class="black">
+         <span id="cf_address"></span></span></td>
+       </tr>
+       <tr>
+          <th>Total Photos</th>
+          <td><span class="black">
+          <span id="cf_numPhotos"></span></span></td>
+       </tr>
+
+      </table>
+    </div>
+    <div class="col-md-4">
+  </div>
+</div>
+</div>
+</body>
+</html>

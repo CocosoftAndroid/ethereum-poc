@@ -1,0 +1,90 @@
+<DOCTYPE html>
+<html>
+<head>
+  <title>Product Locations DApp</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body >
+  <div class="container-fluid">
+  <h1>Application to add and retrive locations from RFID</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-fluid">
+       <tr>
+         <th>Contract Address</th>
+         <td><span class="black">
+         <span id="cf_address"></span></span></td>
+       </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</br></br><div class="row" style="height:100px">
+	<h2 style="padding-top: 25px;margin-bottom: 30px;"></h2>
+	<h3 style="margin-top: 25px;margin-bottom: 30px;"></h3>
+</div>
+
+  <div class="row>
+  	<h2 style="padding-top: 0px;margin-bottom: 30px;"></h2>
+  	<div class="col-md-7">
+  	<h3 style="margin-top: 0px;margin-bottom: 30px;">
+  	Add New Location</h3>
+  		<table class="table-fluid">
+  			<tr>
+  				<th>RF-ID</th>
+  				<td><input type="text" name="rfID" id="r_rfID"></td>
+  			</tr>
+  			<tr>
+  				<th>Product-Name</th>
+  				<td><input type="text" name="productName" id="r_productName"></td>
+  			</tr>
+
+  			<tr>
+  				<th>Location</th>
+  				<td><input type="text" name="Location" id="r_location"></td>
+  			</tr>
+  			<tr>
+  				<th>&nbsp;</th>
+  				<td><input type="button" name="Add" value="submit" id="submit" onclick="addProdInfo()" class="btn btn-primary"></td>
+  			</tr>
+  			<div id="msg"></div>
+  		</table>
+  	</div>
+
+</div>
+    <div class="col-md-3">
+  	<h3 style="margin-top: 0px;margin-bottom: 5px;">
+  	Locations based on RFID</h3>
+  		<table class="table-fluid">
+  			<tr>
+  				<th>RF-ID</th>
+  				<td><input type="text" name="getrfID" id="s_rfID"></td>
+  			</tr>
+  			</br>
+  			<tr style="padding-top:500px,padding-bottom:50px">
+  				<th>&nbsp;</th>
+  				<td><input type="button" name="Get Locations" value="Request locations" id="getLocation" onclick="getProductDetails()" class="btn btn-primary"></td>
+  			</tr>
+  			<div id="msg-service"></div>
+  		</table>
+  	</div>
+</div>
+
+<div class="col-md-4" style="margin-top: 20px">
+<p> <span id="p_name"></span></p>
+<p> <span id="loc"></span></p>
+
+</div>
+
+
+</body>
+
+</html>

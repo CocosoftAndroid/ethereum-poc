@@ -1,0 +1,35 @@
+Commands to compile and deploy the contract
+
+
+		var Web3 = require('web3')
+		var web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.0.104:8545"));
+		code = fs.readFileSync('productLocation.sol').toString()
+		solc = require('solc')
+		compiledCode = solc.compile(code)
+		abiDefinition = JSON.parse(compiledCode.contracts[':productLocation'].interface)
+		myContract = web3.eth.contract(abiDefinition)
+		byteCode = compiledCode.contracts[':productLocation'].bytecode
+		deployedContract = myContract.new({data: byteCode, from: web3.eth.accounts[0], gas: 1000000})
+		deployedContract.address
+		contractInstance = myContract.at(deployedContract.address)
+
+		
+commands to add product information to BLOCK
+
+		contractInstance.addProdInfo('10','Iphone','37.0902° N, 95.7129° W',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','17.3850° N, 78.4867° E',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','Sweden',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','GER',{from: web3.eth.accounts[0],gas:2000000})
+
+		contractInstance = myContract.at(deployedContract.address)
+		contractInstance.addProdInfo('10','Iphone','47.0902° N, 95.7129° W',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','57.3850° N, 78.4867° E',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','MUNICH',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('10','Iphone','JAPAN',{from: web3.eth.accounts[0],gas:2000000})
+
+		contractInstance.addProdInfo('11','MOTO','37.7749° N, 122.4194° W',{from: web3.eth.accounts[0],gas:2000000})
+		contractInstance.addProdInfo('11','MOTO','45.5231° N, 122.6765° W',{from: web3.eth.accounts[0],gas:2000000})
+
+Command to get the product location from node
+
+		for(var i = 0;i<contractInstance.getrfIdCount('10'); i++) { console.log(contractInstance.getProductDetails.call('10',i))}
