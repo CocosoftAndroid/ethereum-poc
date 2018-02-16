@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Charge as You GO </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="./app.js"></script>
+</head>
+
+<body>
+		<div id="wrapper">
+	  <h1 class="chrome">CHARGE</h1>
+	  <h3 class="chrome2">As You Go</h3>
+  </div>
+  <br/>
+  <br/>
+  <div class="container-fluid">
+    
+    <h3 style="margin-top: 0px; margin-bottom: 10px;"></h3>
+
+    <div id="tabs-1">
+   
+
+    <div class="row">
+      <div class="col-md-8">
+  
+        <button class="btn btn-primary btn-lg"
+        onclick="uportbtn();">Register UPort</button>
+        <button class="btn btn-primary btn-lg"
+        onclick="uportLoginbtn();">Login Uport</button>
+      </div>
+      <div id="kqr"></div>
+
+	  
+  
+    </div>
+	<br/>
+	<br/>
+	
+       <blink> <div style="padding-top: 5px;color:blue;" id="status">&nbsp;</div> </blink>
+	<br/>
+	 <div class="row">
+      <div class="col-md-3">
+
+        <table class="table table-fluid">
+          <tr>
+            <th>Contract Address</th>
+            <td><span class="black">
+            <span id="cf_address"></span></span>
+            </td>
+          </tr>
+          <tr>
+            <th>Number of Stations</th>
+            <td><span class="black">
+            <span id="cf_stations"></span></span>
+            </td>
+          </tr>
+          <tr>
+            <th>Number of Users</th>
+            <td><span class="black">
+            <span id="cf_users"></span></span>
+            </td>
+          </tr>
+         
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+        </form>
+     </div>
+  </div>
+</div>
+
+
+</div>
+</body>
+
+</html>

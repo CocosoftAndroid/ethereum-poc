@@ -1,0 +1,140 @@
+
+<html>
+   <head>
+      <title>Charge as you GO</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+      <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+   
+      <link href="./app.css" rel='stylesheet' type='text/css'>
+     
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script src="https://cdn.rawgit.com/ethereum/web3.js/develop/dist/web3.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="../app.js"></script>
+   </head>
+   <body>
+   	<div id="wrapper">
+	  <h1 class="chrome">CHARGE</h1>
+	  <h3 class="chrome2">As You Go</h3>
+  </div>
+  <br/>
+  <br/>
+  
+      <div data-role="page">
+		<div style="position: relative;">
+    
+    <div style="position: absolute; top: 0; right: 0;"><button class="btn btn-primary btn-lg"
+                 onclick="logout();"> LogOut </button></div>
+</div>
+      
+         </div>
+         <div class="row">
+            <div class="card-title has-supporting-text">
+               <center>
+                  <h4 style="color:blue;">User Wallet Details</h4>
+               
+               </center>
+
+               <label>Name: </label>
+               <text id="username">  </text> </br>
+
+
+               <label>Email:</label>
+               <text id="useremail"></text></br>
+
+        
+
+               <label>Amount Paid(in ETH)</label>
+               <text id="amountpaid"></text></br>
+
+               <label>SolarCoin Balance</label>
+               <text id="balance"></text></br>
+            </div>
+         </div>
+         <div class="row">
+           <center>
+           <h4 style="padding-top: 20px;color:blue;">Buy SolarCoins</h4>
+         </center>
+
+
+         <label>Address</label>
+         <text id="cb_address" style="font-size:12px"></text></br>
+
+ 
+
+         <label>coinRate/Wei</label>
+         <text id="cf_rate"></text></br>
+		 <text>Enter the amount in Ethers</text>
+
+
+
+
+
+           
+
+           <input type="text" class="form-control"
+                   id="amount" placeholder="Amount" /><br>
+
+
+           <button class="btn btn-primary btn-lg"
+                 onclick="buyCoins();">BUY COINS</button>  <blink> <div style="padding-top: 5px;color:blue;" id="status">&nbsp;</div> </blink>
+
+
+           <br><br> 
+         </div>
+         <div role="main" class="ui-content" data-inset="false">
+
+            <div class="row">
+               <div class="card-title has-supporting-text">
+                  <center>
+                     <h4 style="color:blue;">Available Stations</h4>
+                  </center>
+
+
+                     <label>Station ID</label>
+                     <text id="stationID" style="font-size:14px"></text></br>
+
+                     <label>Location</label>
+                     <text id="location" style="font-size:14px"></text></br>
+
+                     <label>Rate/second (SolarCoins)</label>
+                     <text id="rate"></text></br>
+
+                     <button class="btn btn-primary btn-lg"
+                           onclick="SelectedStation();">Charge @123</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         $(document).ready(function() {
+           var useremail = sessionStorage.getItem('useremail');
+           var username = sessionStorage.getItem('username');
+           var address = sessionStorage.getItem('address');
+           var amountpaid = sessionStorage.getItem('amountpaid');
+           var balance = sessionStorage.getItem('balance');
+           var userimg = sessionStorage.getItem('userimg');
+           var  stationID = sessionStorage.getItem('stationID');
+           var  rate = sessionStorage.getItem('rate');
+           var  location = sessionStorage.getItem('location');
+           var cb_address = sessionStorage.getItem('cb_address');
+           var cb_balance = sessionStorage.getItem('cb_balance');
+           var cf_rate = sessionStorage.getItem('cf_rate');
+		  
+		  $('#useremail').html(useremail);
+		  $('#username').html(username);
+		  $('#address').html(address);
+		  $('#amountpaid').html(amountpaid);
+      $('#stationID').html(stationID);
+      $('#rate').html(rate);
+      $('#location').html(location);
+		  $('#balance').html(balance);
+      $('#cb_address').html(cb_address);
+      $('#cb_balance').html(cb_balance);
+      $('#cf_rate').html(cf_rate);
+	 
+         });
+      </script>
+   </body>
+</html>
