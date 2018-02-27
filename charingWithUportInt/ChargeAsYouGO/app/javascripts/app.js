@@ -169,6 +169,7 @@ function LoginUportUser(name, email, phone, add) {
           window.location.href = 'app/home.html';
         } else {
           console.log("Login failed");
+          setStatus("Login Failed ......Please register clicking Register uport button");
         }
       });
   });
@@ -212,7 +213,7 @@ window.buyCoins = function(solar) {
   web3_uport.eth.sendTransaction({
       to: web3.eth.coinbase,
       value: amount
-    },  
+    },
     (error, txHash) => {
       if (error) {
         throw error
@@ -232,16 +233,16 @@ window.buyCoins = function(solar) {
                 console.log("balance: " + result[4]);
                 sessionStorage.setItem('amountpaid', result[3]/1.0e18);
                 sessionStorage.setItem('balance', result[4]);
-				amountInETH =  result[3]/1.0e18;
+				        var amountInETH =  result[3]/1.0e18;
                 $('#amountpaid').html(amountInETH);
                 $('#balance').html(result[4].toNumber());
 
               });
-			setStatus("Transaction Successful, Check Balance!");
+			setStatus("Transaction Successful,refresh the page to check Balance!");
             console.log("Done!");
           });
       });
-	  
+
     }
   );
 
@@ -266,7 +267,7 @@ window.SelectedStation = function() {
 }
 
 window.btnpay = function() {
- 
+
   console.log("Executing Pay function");
   var rate = sessionStorage.getItem('rate');
   var minutes = $("#minutes").val();
@@ -295,7 +296,7 @@ window.btnconfirm = function() {
    var balance = sessionStorage.getItem('balance');
    var email = sessionStorage.getItem('useremail');
    var station_ID = sessionStorage.getItem('stationID');
-   
+
   amount = $("#amount").val();
   duration = $("#minutes").val();
   console.log("minutes:"+duration);
@@ -372,4 +373,3 @@ if ( navigator.platform.indexOf('Win') != -1 ) {
 } else if ( navigator.platform.indexOf('Mac') != -1 ) {
   window.document.getElementById("wrapper").setAttribute("class", "mac");
 }
-
